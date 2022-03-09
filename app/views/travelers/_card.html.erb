@@ -24,16 +24,20 @@
 
       <!-- Edit link traveler start -->
       <div class="col">
-        <%= link_to edit_traveler_url(traveler), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @traveler.user %>
+          <%= link_to edit_traveler_url(traveler), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link traveler end -->
 
       <!-- Delete link traveler start -->
       <div class="col">
-        <%= link_to traveler, method: :delete, data: { confirm: "Do you really want to delete this traveler?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @traveler.user %>
+          <%= link_to traveler, method: :delete, data: { confirm: "Do you really want to delete this traveler?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link traveler end -->

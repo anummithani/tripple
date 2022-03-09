@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to traveler, method: :delete, data: { confirm: "Do you really want to delete this traveler" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == traveler.user %>
+          <%= link_to traveler, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 
