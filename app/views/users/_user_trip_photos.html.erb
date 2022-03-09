@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Trip Photos
+
+    <a data-toggle="collapse" href="#user_trip_photos_new_form">
+      Add trip photo
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.trip_photos.each do |trip_photo| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to trip_photo, trip_photo %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_trip_photos_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
