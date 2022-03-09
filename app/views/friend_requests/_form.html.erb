@@ -42,7 +42,7 @@
 
     <%= f.label :recepient_id %>
     <!-- Input for recepient_id start -->
-    <%= f.number_field :recepient_id, class: recepient_class, placeholder: "Enter recepient" %>
+    <%= f.collection_select :recepient_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for recepient_id end -->
     <% if recepient_was_invalid %>
       <% friend_request.errors.full_messages_for(:recepient).each do |message| %>
