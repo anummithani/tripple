@@ -1,0 +1,57 @@
+<% was_validated = user.errors.any? %>
+
+<%= form_with(model: user, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = user.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% user.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for profile_picture start -->
+  <div class="form-group">
+    <% profile_picture_class = "form-control" %>
+    <% profile_picture_was_invalid = user.errors.include?(:profile_picture) %>
+
+    <% if was_validated %>
+      <% if profile_picture_was_invalid %>
+        <% profile_picture_class << " is-invalid" %>
+      <% else %>
+        <% profile_picture_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :profile_picture %>
+    <!-- Input for profile_picture start -->
+    <%= f.text_field :profile_picture, class: profile_picture_class, placeholder: "Enter profile picture" %>
+    <!-- Input for profile_picture end -->
+    <% if profile_picture_was_invalid %>
+      <% user.errors.full_messages_for(:profile_picture).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for profile_picture end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
