@@ -12,6 +12,8 @@ RSpec.describe Trip, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:departure_date) }
+
     it { should validate_presence_of(:trip_image) }
 
     it { should validate_presence_of(:trip_name) }
