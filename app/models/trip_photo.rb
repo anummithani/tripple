@@ -5,6 +5,8 @@ class TripPhoto < ApplicationRecord
 
   # Validations
 
+  validates :uploading_user_id, :presence => true
+
   # Scopes
 
   def to_s

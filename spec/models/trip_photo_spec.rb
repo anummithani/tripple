@@ -12,5 +12,7 @@ RSpec.describe TripPhoto, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:uploading_user_id) }
+
     end
 end
