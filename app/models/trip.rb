@@ -5,6 +5,8 @@ class Trip < ApplicationRecord
 
   # Validations
 
+  validates :country, :presence => true
+
   validates :departure_date, :presence => true
 
   validates :trip_image, :presence => true
