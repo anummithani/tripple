@@ -1,6 +1,10 @@
 class Trip < ApplicationRecord
   # Direct associations
 
+  has_many   :travellers,
+             :class_name => "Traveler",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
