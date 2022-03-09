@@ -9,6 +9,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :trip_photos,
+             foreign_key: :uploading_user_id
+
   has_many   :recieved_friend_requests,
              resource: FriendRequestResource,
              foreign_key: :recepient_id
