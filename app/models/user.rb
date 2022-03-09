@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   mount_base64_uploader :profile_picture, ProfilePictureUploader
 
-  # Direct associations
+  
+  include JwtToken
+# Direct associations
 
   has_many   :trip_photos,
              :foreign_key => "uploading_user_id",
