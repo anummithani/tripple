@@ -7,6 +7,9 @@ class FriendRequestResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :sender,
+             resource: UserResource
+
   # Indirect associations
 
 end
