@@ -12,7 +12,11 @@
 
       <dt>Trip</dt>
       <!-- Display trip_id start -->
-      <dd><%= restaurant.trip_id %></dd>
+      <dd>
+        <% if @restaurant.trip.present? %>
+          <%= link_to restaurant.trip, restaurant.trip %>
+        <% end %>
+      </dd>
       <!-- Display trip_id end -->
 
       <dt>Date</dt>

@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= traveler.user_id %></dd>
+      <dd>
+        <% if @traveler.user.present? %>
+          <%= link_to traveler.user, traveler.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Trip</dt>
       <!-- Display trip_id start -->
-      <dd><%= traveler.trip_id %></dd>
+      <dd>
+        <% if @traveler.trip.present? %>
+          <%= link_to traveler.trip, traveler.trip %>
+        <% end %>
+      </dd>
       <!-- Display trip_id end -->
 
     </dl>

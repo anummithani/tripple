@@ -19,12 +19,20 @@
 
       <dt>Trip</dt>
       <!-- Display trip_id start -->
-      <dd><%= trip_photo.trip_id %></dd>
+      <dd>
+        <% if @trip_photo.trip.present? %>
+          <%= link_to trip_photo.trip, trip_photo.trip %>
+        <% end %>
+      </dd>
       <!-- Display trip_id end -->
 
       <dt>Uploading user</dt>
       <!-- Display uploading_user_id start -->
-      <dd><%= trip_photo.uploading_user_id %></dd>
+      <dd>
+        <% if @trip_photo.uploading_user.present? %>
+          <%= link_to trip_photo.uploading_user, trip_photo.uploading_user %>
+        <% end %>
+      </dd>
       <!-- Display uploading_user_id end -->
 
     </dl>

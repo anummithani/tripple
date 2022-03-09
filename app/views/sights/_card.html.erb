@@ -22,7 +22,11 @@
 
       <dt>Trip</dt>
       <!-- Display trip_id start -->
-      <dd><%= sight.trip_id %></dd>
+      <dd>
+        <% if @sight.trip.present? %>
+          <%= link_to sight.trip, sight.trip %>
+        <% end %>
+      </dd>
       <!-- Display trip_id end -->
 
     </dl>
