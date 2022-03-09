@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Sight #<%= sight.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= sight.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Date</dt>
+      <!-- Display date start -->
+      <dd><%= sight.date %></dd>
+      <!-- Display date end -->
+
+      <dt>Time</dt>
+      <!-- Display time start -->
+      <dd><%= sight.time %></dd>
+      <!-- Display time end -->
+
+      <dt>Trip</dt>
+      <!-- Display trip_id start -->
+      <dd><%= sight.trip_id %></dd>
+      <!-- Display trip_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back sight, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link sight start -->
+      <div class="col">
+        <%= link_to edit_sight_url(sight), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link sight end -->
+
+      <!-- Delete link sight start -->
+      <div class="col">
+        <%= link_to sight, method: :delete, data: { confirm: "Do you really want to delete this sight?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link sight end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(sight.updated_at) %> ago
+  </div>
+</div>
