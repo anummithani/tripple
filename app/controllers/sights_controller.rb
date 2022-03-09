@@ -3,7 +3,7 @@ class SightsController < ApplicationController
 
   # GET /sights
   def index
-    @sights = Sight.all
+    @sights = Sight.page(params[:page]).per(10)
   end
 
   # GET /sights/1
