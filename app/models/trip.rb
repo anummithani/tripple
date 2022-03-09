@@ -5,6 +5,8 @@ class Trip < ApplicationRecord
 
   # Validations
 
+  validates :trip_name, :presence => true
+
   # Scopes
 
   def to_s
