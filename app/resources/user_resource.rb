@@ -25,6 +25,26 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :friends, resource: UserResource do
+    assign_each do |user, users|
+      users.select do |u|
+        u.id.in?(user.friends.map(&:id))
+      end
+    end
+  end
+
   many_to_many :trips
 
+
+  filter :sender_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:friends).where(:friend_requests => {:sender_id => value})
+    end
+  end
+
+  filter :recepient_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:friends).where(:friend_requests => {:recepient_id => value})
+    end
+  end
 end
