@@ -24,7 +24,12 @@ class SightsController < ApplicationController
     @sight = Sight.new(sight_params)
 
     if @sight.save
-      redirect_to @sight, notice: 'Sight was successfully created.'
+      message = 'Sight was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @sight, notice: message
+      end
     else
       render :new
     end

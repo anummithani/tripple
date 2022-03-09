@@ -8,6 +8,10 @@ class TripsController < ApplicationController
 
   # GET /trips/1
   def show
+    @trip_photo = TripPhoto.new
+    @sight = Sight.new
+    @restaurant = Restaurant.new
+    @traveler = Traveler.new
   end
 
   # GET /trips/new

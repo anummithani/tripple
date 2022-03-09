@@ -1,0 +1,41 @@
+<!-- Form trip_photo start -->
+<%= form_with(model: @trip_photo, local: true) do |f| %>
+<!-- Form trip_photo end -->
+
+  <!-- Label and input for image start -->
+  <div class="form-group">
+    <%= f.label :image %>
+
+    <!-- Input for image start -->
+    <%= f.text_field :image, class: "form-control" %>
+    <!-- Input for image end -->
+  </div>
+  <!-- Label and input for image end -->
+
+  <!-- Label and input for caption start -->
+  <div class="form-group">
+    <%= f.label :caption %>
+    <!-- Input for caption start -->
+    <%= f.text_area :caption, rows: "3", class: "form-control" %>
+    <!-- Input for caption end -->
+  </div>
+  <!-- Label and input for caption end -->
+
+  <!-- Label and input for trip_id start -->
+  <div class="form-group">
+    <%= f.label :trip_id %>
+
+    <!-- Input for trip_id start -->
+    <%= f.text_field :trip_id, class: "form-control" %>
+    <!-- Input for trip_id end -->
+  </div>
+  <!-- Label and input for trip_id end -->
+
+  <!-- Label and input for uploading_user_id start -->
+  <!-- Input for uploading_user_id start -->
+  <%= f.hidden_field :uploading_user_id, value: @user.id %>
+  <!-- Input for uploading_user_id end -->
+  <!-- Label and input for uploading_user_id end -->
+
+  <%= f.submit "Create trip photo", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
