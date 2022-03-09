@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:trip_photos) }
+
     it { should have_many(:recieved_friend_requests) }
 
     it { should have_many(:sent_friend_requests) }

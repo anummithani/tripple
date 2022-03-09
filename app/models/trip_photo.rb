@@ -1,6 +1,9 @@
 class TripPhoto < ApplicationRecord
   # Direct associations
 
+  belongs_to :uploading_user,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations

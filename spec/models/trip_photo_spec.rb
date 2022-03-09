@@ -4,6 +4,8 @@ RSpec.describe TripPhoto, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:uploading_user) }
+
     end
 
     describe "InDirect Associations" do
