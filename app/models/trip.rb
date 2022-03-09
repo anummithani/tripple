@@ -1,6 +1,9 @@
 class Trip < ApplicationRecord
   # Direct associations
 
+  has_many   :restaurants,
+             :dependent => :destroy
+
   has_many   :travellers,
              :class_name => "Traveler",
              :dependent => :destroy
