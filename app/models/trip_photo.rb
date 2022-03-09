@@ -5,6 +5,8 @@ class TripPhoto < ApplicationRecord
 
   # Validations
 
+  validates :trip_id, :presence => true
+
   validates :uploading_user_id, :presence => true
 
   # Scopes
