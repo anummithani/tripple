@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Trip Photo #<%= trip_photo.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Image</dt>
+      <!-- Display image start -->
+      <dd><%= trip_photo.image %></dd>
+      <!-- Display image end -->
+
+      <dt>Caption</dt>
+      <!-- Display caption start -->
+      <dd><%= trip_photo.caption %></dd>
+      <!-- Display caption end -->
+
+      <dt>Trip</dt>
+      <!-- Display trip_id start -->
+      <dd><%= trip_photo.trip_id %></dd>
+      <!-- Display trip_id end -->
+
+      <dt>Uploading user</dt>
+      <!-- Display uploading_user_id start -->
+      <dd><%= trip_photo.uploading_user_id %></dd>
+      <!-- Display uploading_user_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back trip_photo, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link trip_photo start -->
+      <div class="col">
+        <%= link_to edit_trip_photo_url(trip_photo), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link trip_photo end -->
+
+      <!-- Delete link trip_photo start -->
+      <div class="col">
+        <%= link_to trip_photo, method: :delete, data: { confirm: "Do you really want to delete this trip_photo?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link trip_photo end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(trip_photo.updated_at) %> ago
+  </div>
+</div>

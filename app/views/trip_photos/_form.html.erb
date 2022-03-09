@@ -1,0 +1,109 @@
+<% was_validated = trip_photo.errors.any? %>
+
+<%= form_with(model: trip_photo, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for image start -->
+  <div class="form-group">
+    <% image_class = "form-control" %>
+    <% image_was_invalid = trip_photo.errors.include?(:image) %>
+
+    <% if was_validated %>
+      <% if image_was_invalid %>
+        <% image_class << " is-invalid" %>
+      <% else %>
+        <% image_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :image %>
+    <!-- Input for image start -->
+    <%= f.text_field :image, class: image_class, placeholder: "Enter image" %>
+    <!-- Input for image end -->
+    <% if image_was_invalid %>
+      <% trip_photo.errors.full_messages_for(:image).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for image end -->
+  <!-- Label and input for caption start -->
+  <div class="form-group">
+    <% caption_class = "form-control" %>
+    <% caption_was_invalid = trip_photo.errors.include?(:caption) %>
+
+    <% if was_validated %>
+      <% if caption_was_invalid %>
+        <% caption_class << " is-invalid" %>
+      <% else %>
+        <% caption_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :caption %>
+    <!-- Input for caption start -->
+    <%= f.text_area :caption, class: caption_class, placeholder: "Enter caption" %>
+    <!-- Input for caption end -->
+    <% if caption_was_invalid %>
+      <% trip_photo.errors.full_messages_for(:caption).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for caption end -->
+  <!-- Label and input for trip_id start -->
+  <div class="form-group">
+    <% trip_class = "form-control" %>
+    <% trip_was_invalid = trip_photo.errors.include?(:trip) %>
+
+    <% if was_validated %>
+      <% if trip_was_invalid %>
+        <% trip_class << " is-invalid" %>
+      <% else %>
+        <% trip_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :trip_id %>
+    <!-- Input for trip_id start -->
+    <%= f.number_field :trip_id, class: trip_class, placeholder: "Enter trip" %>
+    <!-- Input for trip_id end -->
+    <% if trip_was_invalid %>
+      <% trip_photo.errors.full_messages_for(:trip).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for trip_id end -->
+  <!-- Label and input for uploading_user_id start -->
+  <div class="form-group">
+    <% uploading_user_class = "form-control" %>
+    <% uploading_user_was_invalid = trip_photo.errors.include?(:uploading_user) %>
+
+    <% if was_validated %>
+      <% if uploading_user_was_invalid %>
+        <% uploading_user_class << " is-invalid" %>
+      <% else %>
+        <% uploading_user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :uploading_user_id %>
+    <!-- Input for uploading_user_id start -->
+    <%= f.number_field :uploading_user_id, class: uploading_user_class, placeholder: "Enter uploading user" %>
+    <!-- Input for uploading_user_id end -->
+    <% if uploading_user_was_invalid %>
+      <% trip_photo.errors.full_messages_for(:uploading_user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for uploading_user_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
