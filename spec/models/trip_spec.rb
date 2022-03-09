@@ -12,6 +12,8 @@ RSpec.describe Trip, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:city) }
+
     it { should validate_presence_of(:country) }
 
     it { should validate_presence_of(:departure_date) }
