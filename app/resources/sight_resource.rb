@@ -12,5 +12,4 @@ class SightResource < ApplicationResource
   belongs_to :trip
 
   # Indirect associations
-
 end

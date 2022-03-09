@@ -13,7 +13,7 @@ class Api::V1::TripPhotosController < Api::V1::GraphitiController
     trip_photo = TripPhotoResource.build(params)
 
     if trip_photo.save
-      render jsonapi: trip_photo, status: 201
+      render jsonapi: trip_photo, status: :created
     else
       render jsonapi_errors: trip_photo
     end
@@ -33,7 +33,7 @@ class Api::V1::TripPhotosController < Api::V1::GraphitiController
     trip_photo = TripPhotoResource.find(params)
 
     if trip_photo.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: trip_photo
     end

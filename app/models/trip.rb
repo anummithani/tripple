@@ -4,42 +4,41 @@ class Trip < ApplicationRecord
   # Direct associations
 
   has_many   :trip_photos,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :sights,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :restaurants,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :travellers,
-             :class_name => "Traveler",
-             :dependent => :destroy
+             class_name: "Traveler",
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :users,
-             :through => :travellers,
-             :source => :user
+             through: :travellers,
+             source: :user
 
   # Validations
 
-  validates :arrival_date, :presence => true
+  validates :arrival_date, presence: true
 
-  validates :city, :presence => true
+  validates :city, presence: true
 
-  validates :country, :presence => true
+  validates :country, presence: true
 
-  validates :departure_date, :presence => true
+  validates :departure_date, presence: true
 
-  validates :trip_image, :presence => true
+  validates :trip_image, presence: true
 
-  validates :trip_name, :presence => true
+  validates :trip_name, presence: true
 
   # Scopes
 
   def to_s
     city
   end
-
 end

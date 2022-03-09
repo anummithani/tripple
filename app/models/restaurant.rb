@@ -7,18 +7,17 @@ class Restaurant < ApplicationRecord
 
   # Validations
 
-  validates :date, :presence => true
+  validates :date, presence: true
 
-  validates :name, :presence => true
+  validates :name, presence: true
 
-  validates :time, :presence => true
+  validates :time, presence: true
 
-  validates :trip_id, :presence => true
+  validates :trip_id, presence: true
 
   # Scopes
 
   def to_s
     name
   end
-
 end

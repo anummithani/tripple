@@ -13,7 +13,7 @@ class Api::V1::SightsController < Api::V1::GraphitiController
     sight = SightResource.build(params)
 
     if sight.save
-      render jsonapi: sight, status: 201
+      render jsonapi: sight, status: :created
     else
       render jsonapi_errors: sight
     end
@@ -33,7 +33,7 @@ class Api::V1::SightsController < Api::V1::GraphitiController
     sight = SightResource.find(params)
 
     if sight.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: sight
     end

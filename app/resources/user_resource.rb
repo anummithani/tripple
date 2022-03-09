@@ -35,16 +35,15 @@ class UserResource < ApplicationResource
 
   many_to_many :trips
 
-
   filter :sender_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:friends).where(:friend_requests => {:sender_id => value})
+      scope.eager_load(:friends).where(friend_requests: { sender_id: value })
     end
   end
 
   filter :recepient_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:friends).where(:friend_requests => {:recepient_id => value})
+      scope.eager_load(:friends).where(friend_requests: { recepient_id: value })
     end
   end
 end

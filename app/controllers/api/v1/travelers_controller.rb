@@ -13,7 +13,7 @@ class Api::V1::TravelersController < Api::V1::GraphitiController
     traveler = TravelerResource.build(params)
 
     if traveler.save
-      render jsonapi: traveler, status: 201
+      render jsonapi: traveler, status: :created
     else
       render jsonapi_errors: traveler
     end
@@ -33,7 +33,7 @@ class Api::V1::TravelersController < Api::V1::GraphitiController
     traveler = TravelerResource.find(params)
 
     if traveler.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: traveler
     end

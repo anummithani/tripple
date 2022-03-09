@@ -15,5 +15,4 @@ class TripPhotoResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end
