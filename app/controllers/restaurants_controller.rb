@@ -3,7 +3,8 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants
   def index
-    @restaurants = Restaurant.page(params[:page]).per(10)
+    @q = Restaurant.ransack(params[:q])
+    @restaurants = @q.result(:distinct => true).includes(:trip).page(params[:page]).per(10)
   end
 
   # GET /restaurants/1

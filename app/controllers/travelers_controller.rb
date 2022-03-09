@@ -5,7 +5,8 @@ class TravelersController < ApplicationController
 
   # GET /travelers
   def index
-    @travelers = Traveler.page(params[:page]).per(10)
+    @q = Traveler.ransack(params[:q])
+    @travelers = @q.result(:distinct => true).includes(:user, :trip).page(params[:page]).per(10)
   end
 
   # GET /travelers/1

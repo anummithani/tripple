@@ -3,7 +3,8 @@ class SightsController < ApplicationController
 
   # GET /sights
   def index
-    @sights = Sight.page(params[:page]).per(10)
+    @q = Sight.ransack(params[:q])
+    @sights = @q.result(:distinct => true).includes(:trip).page(params[:page]).per(10)
   end
 
   # GET /sights/1

@@ -3,7 +3,8 @@ class TripPhotosController < ApplicationController
 
   # GET /trip_photos
   def index
-    @trip_photos = TripPhoto.page(params[:page]).per(10)
+    @q = TripPhoto.ransack(params[:q])
+    @trip_photos = @q.result(:distinct => true).includes(:uploading_user, :trip).page(params[:page]).per(10)
   end
 
   # GET /trip_photos/1

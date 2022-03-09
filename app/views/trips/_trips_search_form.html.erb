@@ -1,0 +1,204 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "trips_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :city_cont, "City contains" %>
+    <%= f.text_field :city_cont, :class => "form-control", :placeholder => "City contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :departure_date, "Departure date" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='departure_dategteqPicker' data-target-input="nearest">
+          <%= f.text_field :departure_date_gteq, :class => "form-control datetimepicker-input", :placeholder => "Departure date greater than or equal to", :data => {:target => '#departure_dategteqPicker'} %>
+          <div class="input-group-append" data-target='#departure_dategteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='departure_datelteqPicker' data-target-input="nearest">
+          <%= f.text_field :departure_date_lteq, :class => "form-control datetimepicker-input", :placeholder => "Departure date less than or equal to", :data => {:target => '#departure_datelteqPicker'} %>
+          <div class="input-group-append" data-target='#departure_datelteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#departure_dategteqPicker').datetimepicker({
+              format: 'MM/DD/YYYY'
+          });
+          $('#departure_datelteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'MM/DD/YYYY'
+          });
+          $('#departure_dategteqPicker').on("dp.change", function (e) {
+              $('#departure_datelteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#departure_datelteqPicker').on("dp.change", function (e) {
+              $('#departure_dategteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :arrival_date, "Arrival date" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='arrival_dategteqPicker' data-target-input="nearest">
+          <%= f.text_field :arrival_date_gteq, :class => "form-control datetimepicker-input", :placeholder => "Arrival date greater than or equal to", :data => {:target => '#arrival_dategteqPicker'} %>
+          <div class="input-group-append" data-target='#arrival_dategteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='arrival_datelteqPicker' data-target-input="nearest">
+          <%= f.text_field :arrival_date_lteq, :class => "form-control datetimepicker-input", :placeholder => "Arrival date less than or equal to", :data => {:target => '#arrival_datelteqPicker'} %>
+          <div class="input-group-append" data-target='#arrival_datelteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#arrival_dategteqPicker').datetimepicker({
+              format: 'MM/DD/YYYY'
+          });
+          $('#arrival_datelteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'MM/DD/YYYY'
+          });
+          $('#arrival_dategteqPicker').on("dp.change", function (e) {
+              $('#arrival_datelteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#arrival_datelteqPicker').on("dp.change", function (e) {
+              $('#arrival_dategteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :trip_name_cont, "Trip name contains" %>
+    <%= f.text_field :trip_name_cont, :class => "form-control", :placeholder => "Trip name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :country_cont, "Country contains" %>
+    <%= f.text_field :country_cont, :class => "form-control", :placeholder => "Country contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :restaurants_name_cont, "Restaurants name contains" %>
+    <%= f.text_field :restaurants_name_cont, :class => "form-control", :placeholder => "Restaurants name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sights_name_cont, "Sights name contains" %>
+    <%= f.text_field :sights_name_cont, :class => "form-control", :placeholder => "Sights name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "TripPhoto Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='trip_photosgteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :trip_photos_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "TripPhoto Created at greater than or equal to", :data => {:target => '#trip_photosgteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#trip_photosgteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='trip_photoslteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :trip_photos_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "TripPhoto Created at less than or equal to", :data => {:target => '#trip_photoslteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#trip_photoslteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#trip_photosgteqcreated_atPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#trip_photoslteqcreated_atPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#trip_photosgteqcreated_atPicker').on("dp.change", function (e) {
+              $('#trip_photoslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#trip_photoslteqcreated_atPicker').on("dp.change", function (e) {
+              $('#trip_photosgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :users_email_cont, "Users email contains" %>
+    <%= f.text_field :users_email_cont, :class => "form-control", :placeholder => "Users email contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/trips" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#trips_filters">
+  Show filters
+</a>
