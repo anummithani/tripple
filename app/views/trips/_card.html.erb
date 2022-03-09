@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Trip #<%= trip.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>City</dt>
+      <!-- Display city start -->
+      <dd><%= trip.city %></dd>
+      <!-- Display city end -->
+
+      <dt>Country</dt>
+      <!-- Display country start -->
+      <dd><%= trip.country %></dd>
+      <!-- Display country end -->
+
+      <dt>Trip name</dt>
+      <!-- Display trip_name start -->
+      <dd><%= trip.trip_name %></dd>
+      <!-- Display trip_name end -->
+
+      <dt>Trip image</dt>
+      <!-- Display trip_image start -->
+      <dd><%= trip.trip_image %></dd>
+      <!-- Display trip_image end -->
+
+      <dt>Arrival date</dt>
+      <!-- Display arrival_date start -->
+      <dd><%= trip.arrival_date %></dd>
+      <!-- Display arrival_date end -->
+
+      <dt>Departure date</dt>
+      <!-- Display departure_date start -->
+      <dd><%= trip.departure_date %></dd>
+      <!-- Display departure_date end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back trip, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link trip start -->
+      <div class="col">
+        <%= link_to edit_trip_url(trip), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link trip end -->
+
+      <!-- Delete link trip start -->
+      <div class="col">
+        <%= link_to trip, method: :delete, data: { confirm: "Do you really want to delete this trip?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link trip end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(trip.updated_at) %> ago
+  </div>
+</div>
