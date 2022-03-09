@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "trips#index"
   resources :friend_requests
   resources :sights
   resources :trip_photos
