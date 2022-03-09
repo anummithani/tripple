@@ -1,7 +1,6 @@
 <% was_validated = trip.errors.any? %>
 
 <%= form_with(model: trip, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for city start -->
   <div class="form-group">
     <% city_class = "form-control" %>
     <% city_was_invalid = trip.errors.include?(:city) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :city %>
-    <!-- Input for city start -->
     <%= f.text_field :city, class: city_class, placeholder: "Enter city" %>
-    <!-- Input for city end -->
     <% if city_was_invalid %>
       <% trip.errors.full_messages_for(:city).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for city end -->
-  <!-- Label and input for country start -->
   <div class="form-group">
     <% country_class = "form-control" %>
     <% country_was_invalid = trip.errors.include?(:country) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :country %>
-    <!-- Input for country start -->
     <%= f.text_field :country, class: country_class, placeholder: "Enter country" %>
-    <!-- Input for country end -->
     <% if country_was_invalid %>
       <% trip.errors.full_messages_for(:country).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for country end -->
-  <!-- Label and input for trip_name start -->
   <div class="form-group">
     <% trip_name_class = "form-control" %>
     <% trip_name_was_invalid = trip.errors.include?(:trip_name) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :trip_name %>
-    <!-- Input for trip_name start -->
     <%= f.text_field :trip_name, class: trip_name_class, placeholder: "Enter trip name" %>
-    <!-- Input for trip_name end -->
     <% if trip_name_was_invalid %>
       <% trip.errors.full_messages_for(:trip_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for trip_name end -->
-  <!-- Label and input for trip_image start -->
   <div class="form-group">
     <% trip_image_class = "form-control" %>
     <% trip_image_was_invalid = trip.errors.include?(:trip_image) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :trip_image %>
-    <!-- Input for trip_image start -->
     <%= f.file_field :trip_image, class: "form-control" %>
-    <!-- Input for trip_image end -->
     <% if trip_image_was_invalid %>
       <% trip.errors.full_messages_for(:trip_image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for trip_image end -->
-  <!-- Label and input for arrival_date start -->
   <div class="form-group">
     <% arrival_date_class = "form-control" %>
     <% arrival_date_was_invalid = trip.errors.include?(:arrival_date) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :arrival_date %>
-    <!-- Input for arrival_date start -->
     <%= f.date_select :arrival_date, class: arrival_date_class, placeholder: "Enter arrival date" %>
-    <!-- Input for arrival_date end -->
     <% if arrival_date_was_invalid %>
       <% trip.errors.full_messages_for(:arrival_date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for arrival_date end -->
-  <!-- Label and input for departure_date start -->
   <div class="form-group">
     <% departure_date_class = "form-control" %>
     <% departure_date_was_invalid = trip.errors.include?(:departure_date) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :departure_date %>
-    <!-- Input for departure_date start -->
     <%= f.date_select :departure_date, class: departure_date_class, placeholder: "Enter departure date" %>
-    <!-- Input for departure_date end -->
     <% if departure_date_was_invalid %>
       <% trip.errors.full_messages_for(:departure_date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for departure_date end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

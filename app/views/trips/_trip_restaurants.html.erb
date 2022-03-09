@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @trip.restaurants.each do |restaurant| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to restaurant, restaurant %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to restaurant, method: :delete, data: { confirm: "Do you really want to delete this restaurant" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="trip_restaurants_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "trips/trip_restaurants_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

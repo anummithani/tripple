@@ -1,22 +1,12 @@
-<!-- Form friend_request start -->
 <%= form_with(model: @friend_request, local: true) do |f| %>
-<!-- Form friend_request end -->
 
-  <!-- Label and input for sender_id start -->
   <div class="form-group">
     <%= f.label :sender_id %>
 
-    <!-- Input for sender_id start -->
     <%= f.text_field :sender_id, class: "form-control" %>
-    <!-- Input for sender_id end -->
   </div>
-  <!-- Label and input for sender_id end -->
 
-  <!-- Label and input for recepient_id start -->
-  <!-- Input for recepient_id start -->
   <%= f.hidden_field :recepient_id, value: @user.id %>
-  <!-- Input for recepient_id end -->
-  <!-- Label and input for recepient_id end -->
 
   <%= f.submit "Create friend request", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -1,18 +1,8 @@
-<!-- Form traveler start -->
 <%= form_with(model: @traveler, local: true) do |f| %>
-<!-- Form traveler end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for trip_id start -->
-  <!-- Input for trip_id start -->
   <%= f.hidden_field :trip_id, value: @trip.id %>
-  <!-- Input for trip_id end -->
-  <!-- Label and input for trip_id end -->
 
   <%= f.submit "Create traveler", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = restaurant.errors.any? %>
 
 <%= form_with(model: restaurant, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = restaurant.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% restaurant.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for trip_id start -->
   <div class="form-group">
     <% trip_class = "form-control" %>
     <% trip_was_invalid = restaurant.errors.include?(:trip) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :trip_id %>
-    <!-- Input for trip_id start -->
     <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for trip_id end -->
     <% if trip_was_invalid %>
       <% restaurant.errors.full_messages_for(:trip).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for trip_id end -->
-  <!-- Label and input for date start -->
   <div class="form-group">
     <% date_class = "form-control" %>
     <% date_was_invalid = restaurant.errors.include?(:date) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :date %>
-    <!-- Input for date start -->
     <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
-    <!-- Input for date end -->
     <% if date_was_invalid %>
       <% restaurant.errors.full_messages_for(:date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date end -->
-  <!-- Label and input for time start -->
   <div class="form-group">
     <% time_class = "form-control" %>
     <% time_was_invalid = restaurant.errors.include?(:time) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :time %>
-    <!-- Input for time start -->
     <%= f.time_select :time, class: time_class, placeholder: "Enter time" %>
-    <!-- Input for time end -->
     <% if time_was_invalid %>
       <% restaurant.errors.full_messages_for(:time).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for time end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

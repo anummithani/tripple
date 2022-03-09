@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @traveler.user.present? %>
           <%= link_to traveler.user, traveler.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Trip</dt>
-      <!-- Display trip_id start -->
       <dd>
         <% if @traveler.trip.present? %>
           <%= link_to traveler.trip, traveler.trip %>
         <% end %>
       </dd>
-      <!-- Display trip_id end -->
 
     </dl>
 
@@ -30,7 +26,6 @@
         <%= link_to_show_or_back traveler, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link traveler start -->
       <div class="col">
         <% if current_user == @traveler.user %>
           <%= link_to edit_traveler_url(traveler), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -38,9 +33,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link traveler end -->
 
-      <!-- Delete link traveler start -->
       <div class="col">
         <% if current_user == @traveler.user %>
           <%= link_to traveler, method: :delete, data: { confirm: "Do you really want to delete this traveler?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -48,7 +41,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link traveler end -->
     </div>
   </div>
 

@@ -1,42 +1,24 @@
-<!-- Form restaurant start -->
 <%= form_with(model: @restaurant, local: true) do |f| %>
-<!-- Form restaurant end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <%= f.label :name %>
 
-    <!-- Input for name start -->
     <%= f.text_field :name, class: "form-control" %>
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
-  <!-- Label and input for trip_id start -->
-  <!-- Input for trip_id start -->
   <%= f.hidden_field :trip_id, value: @trip.id %>
-  <!-- Input for trip_id end -->
-  <!-- Label and input for trip_id end -->
 
-  <!-- Label and input for date start -->
   <div class="form-group">
     <%= f.label :date %>
 
-    <!-- Input for date start -->
     <%= f.date_select :date, class: "form-control" %>
-    <!-- Input for date end -->
   </div>
-  <!-- Label and input for date end -->
 
-  <!-- Label and input for time start -->
   <div class="form-group">
     <%= f.label :time %>
 
-    <!-- Input for time start -->
     <%= f.date_select :time, class: "form-control" %>
-    <!-- Input for time end -->
   </div>
-  <!-- Label and input for time end -->
 
   <%= f.submit "Create restaurant", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = trip_photo.errors.any? %>
 
 <%= form_with(model: trip_photo, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for image start -->
   <div class="form-group">
     <% image_class = "form-control" %>
     <% image_was_invalid = trip_photo.errors.include?(:image) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :image %>
-    <!-- Input for image start -->
     <%= f.file_field :image, class: "form-control" %>
-    <!-- Input for image end -->
     <% if image_was_invalid %>
       <% trip_photo.errors.full_messages_for(:image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for image end -->
-  <!-- Label and input for caption start -->
   <div class="form-group">
     <% caption_class = "form-control" %>
     <% caption_was_invalid = trip_photo.errors.include?(:caption) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :caption %>
-    <!-- Input for caption start -->
     <%= f.text_area :caption, class: caption_class, placeholder: "Enter caption" %>
-    <!-- Input for caption end -->
     <% if caption_was_invalid %>
       <% trip_photo.errors.full_messages_for(:caption).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for caption end -->
-  <!-- Label and input for trip_id start -->
   <div class="form-group">
     <% trip_class = "form-control" %>
     <% trip_was_invalid = trip_photo.errors.include?(:trip) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :trip_id %>
-    <!-- Input for trip_id start -->
     <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for trip_id end -->
     <% if trip_was_invalid %>
       <% trip_photo.errors.full_messages_for(:trip).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for trip_id end -->
-  <!-- Label and input for uploading_user_id start -->
   <div class="form-group">
     <% uploading_user_class = "form-control" %>
     <% uploading_user_was_invalid = trip_photo.errors.include?(:uploading_user) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :uploading_user_id %>
-    <!-- Input for uploading_user_id start -->
     <%= f.collection_select :uploading_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for uploading_user_id end -->
     <% if uploading_user_was_invalid %>
       <% trip_photo.errors.full_messages_for(:uploading_user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for uploading_user_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
