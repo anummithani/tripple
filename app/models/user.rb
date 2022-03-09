@@ -21,6 +21,14 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :friends,
+             :through => :recieved_friend_requests,
+             :source => :sender
+
+  has_many   :friends,
+             :through => :sent_friend_requests,
+             :source => :recepient
+
   has_many   :trips,
              :through => :travelled_trips,
              :source => :trip
