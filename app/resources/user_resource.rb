@@ -9,6 +9,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :travelled_trips,
+             resource: TravelerResource
+
   # Indirect associations
 
 end
