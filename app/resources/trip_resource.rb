@@ -11,6 +11,8 @@ class TripResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :restaurants
+
   has_many   :travellers,
              resource: TravelerResource
 
