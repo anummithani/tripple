@@ -94,7 +94,7 @@
 
     <%= f.label :uploading_user_id %>
     <!-- Input for uploading_user_id start -->
-    <%= f.number_field :uploading_user_id, class: uploading_user_class, placeholder: "Enter uploading user" %>
+    <%= f.collection_select :uploading_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for uploading_user_id end -->
     <% if uploading_user_was_invalid %>
       <% trip_photo.errors.full_messages_for(:uploading_user).each do |message| %>
