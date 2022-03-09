@@ -1,4 +1,6 @@
 class Trip < ApplicationRecord
+  mount_base64_uploader :trip_image, TripImageUploader
+
   # Direct associations
 
   has_many   :trip_photos,

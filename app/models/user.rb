@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_base64_uploader :profile_picture, ProfilePictureUploader
+
   # Direct associations
 
   has_many   :trip_photos,

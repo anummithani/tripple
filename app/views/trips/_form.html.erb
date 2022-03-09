@@ -94,7 +94,7 @@
 
     <%= f.label :trip_image %>
     <!-- Input for trip_image start -->
-    <%= f.text_field :trip_image, class: trip_image_class, placeholder: "Enter trip image" %>
+    <%= f.file_field :trip_image, class: "form-control" %>
     <!-- Input for trip_image end -->
     <% if trip_image_was_invalid %>
       <% trip.errors.full_messages_for(:trip_image).each do |message| %>

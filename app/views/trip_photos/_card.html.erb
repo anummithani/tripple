@@ -7,7 +7,9 @@
     <dl class="mb-1">
       <dt>Image</dt>
       <!-- Display image start -->
-      <dd><%= trip_photo.image %></dd>
+      <dd>
+        <%= cl_image_tag @trip_photo.image, class: "img-fluid" %>
+      </dd>
       <!-- Display image end -->
 
       <dt>Caption</dt>

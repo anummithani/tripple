@@ -22,7 +22,9 @@
 
       <dt>Trip image</dt>
       <!-- Display trip_image start -->
-      <dd><%= trip.trip_image %></dd>
+      <dd>
+        <%= cl_image_tag @trip.trip_image, class: "img-fluid" %>
+      </dd>
       <!-- Display trip_image end -->
 
       <dt>Arrival date</dt>
