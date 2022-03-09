@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :trips,
+             :through => :travelled_trips,
+             :source => :trip
+
   # Validations
 
   validates :name, :presence => true

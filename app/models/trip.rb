@@ -16,6 +16,10 @@ class Trip < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :travellers,
+             :source => :user
+
   # Validations
 
   validates :arrival_date, :presence => true
