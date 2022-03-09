@@ -9,6 +9,8 @@ class TripPhotoResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :trip
+
   belongs_to :uploading_user,
              resource: UserResource
 
