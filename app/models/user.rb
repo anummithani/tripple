@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :profile_picture, :presence => true
+
   # Scopes
 
   def to_s
