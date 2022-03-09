@@ -7,6 +7,8 @@ class TravelerResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :trip
+
   belongs_to :user
 
   # Indirect associations
