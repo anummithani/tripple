@@ -5,6 +5,8 @@ class Traveler < ApplicationRecord
 
   # Validations
 
+  validates :trip_id, :presence => true
+
   validates :user_id, :presence => true
 
   # Scopes
