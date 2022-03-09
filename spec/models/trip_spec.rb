@@ -4,6 +4,8 @@ RSpec.describe Trip, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:trip_photos) }
+
     it { should have_many(:sights) }
 
     it { should have_many(:restaurants) }

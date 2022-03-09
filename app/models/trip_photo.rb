@@ -1,6 +1,8 @@
 class TripPhoto < ApplicationRecord
   # Direct associations
 
+  belongs_to :trip
+
   belongs_to :uploading_user,
              :class_name => "User"
 
