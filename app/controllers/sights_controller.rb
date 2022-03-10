@@ -54,6 +54,6 @@ class SightsController < ApplicationController
   end
 
   def sight_params
-    params.require(:sight).permit(:name, :date, :time, :trip_id)
+    params.require(:sight).permit(:name, :datetime, :trip_id)
   end
 end

@@ -24,43 +24,21 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% date_class = "form-control" %>
-    <% date_was_invalid = sight.errors.include?(:date) %>
+    <% datetime_class = "form-control" %>
+    <% datetime_was_invalid = sight.errors.include?(:datetime) %>
 
     <% if was_validated %>
-      <% if date_was_invalid %>
-        <% date_class << " is-invalid" %>
+      <% if datetime_was_invalid %>
+        <% datetime_class << " is-invalid" %>
       <% else %>
-        <% date_class << " is-valid" %>
+        <% datetime_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :date %>
-    <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
-    <% if date_was_invalid %>
-      <% sight.errors.full_messages_for(:date).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group">
-    <% time_class = "form-control" %>
-    <% time_was_invalid = sight.errors.include?(:time) %>
-
-    <% if was_validated %>
-      <% if time_was_invalid %>
-        <% time_class << " is-invalid" %>
-      <% else %>
-        <% time_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :time %>
-    <%= f.text_area :time, class: time_class, placeholder: "Enter time" %>
-    <% if time_was_invalid %>
-      <% sight.errors.full_messages_for(:time).each do |message| %>
+    <%= f.label :datetime %>
+    <%= f.date_select :datetime, class: datetime_class, placeholder: "Enter datetime" %>
+    <% if datetime_was_invalid %>
+      <% sight.errors.full_messages_for(:datetime).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

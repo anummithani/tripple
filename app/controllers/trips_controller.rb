@@ -4,12 +4,13 @@ class TripsController < ApplicationController
   def index
     @q = Trip.ransack(params[:q])
     @trips = @q.result(distinct: true).includes(:travellers, :restaurants,
-                                                :sights, :trip_photos, :users).page(params[:page]).per(10)
+                                                :trip_photos, :accommodations, :sights, :users).page(params[:page]).per(10)
   end
 
   def show
-    @trip_photo = TripPhoto.new
     @sight = Sight.new
+    @accommodation = Accommodation.new
+    @trip_photo = TripPhoto.new
     @restaurant = Restaurant.new
     @traveler = Traveler.new
   end

@@ -7,11 +7,9 @@ class Restaurant < ApplicationRecord
 
   # Validations
 
-  validates :date, presence: true
+  validates :datetime, presence: true
 
   validates :name, presence: true
-
-  validates :time, presence: true
 
   validates :trip_id, presence: true
 

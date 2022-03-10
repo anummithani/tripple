@@ -11,9 +11,11 @@ class TripResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :trip_photos
-
   has_many   :sights
+
+  has_many   :accommodations
+
+  has_many   :trip_photos
 
   has_many   :restaurants
 

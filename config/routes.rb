@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   scope path: ApplicationResource.endpoint_namespace,
         defaults: { format: :jsonapi } do
     scope module: "api/v1", as: "api" do
+      resources :accommodations
+
       resources :friend_requests
 
       resources :sights
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: "trips#index"
+  resources :accommodations
   resources :friend_requests
   resources :sights
   resources :trip_photos

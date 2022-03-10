@@ -4,8 +4,7 @@ class RestaurantResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :name, :string
   attribute :trip_id, :integer
-  attribute :date, :date
-  attribute :time, :string
+  attribute :datetime, :datetime
 
   # Direct associations
 
