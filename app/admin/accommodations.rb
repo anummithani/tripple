@@ -1,5 +1,5 @@
-ActiveAdmin.register Restaurant do
-  permit_params :name, :trip_id, :datetime
+ActiveAdmin.register Accommodation do
+  permit_params :name, :check_in_date, :check_out_date, :trip_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

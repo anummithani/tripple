@@ -1,0 +1,48 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Accommodation #<%= accommodation.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <dd><%= accommodation.name %></dd>
+
+      <dt>Check in date</dt>
+      <dd><%= accommodation.check_in_date %></dd>
+
+      <dt>Check out date</dt>
+      <dd><%= accommodation.check_out_date %></dd>
+
+      <dt>Trip</dt>
+      <dd>
+        <% if @accommodation.trip.present? %>
+          <%= link_to accommodation.trip, accommodation.trip %>
+        <% end %>
+      </dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back accommodation, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="col">
+        <%= link_to edit_accommodation_url(accommodation), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <%= link_to accommodation, method: :delete, data: { confirm: "Do you really want to delete this accommodation?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(accommodation.updated_at) %> ago
+  </div>
+</div>

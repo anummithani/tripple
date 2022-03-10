@@ -7,57 +7,21 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :time, "Time" %>
+    <%= f.label :datetime, "Datetime" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
-        <div class='input-group date' id='timegteqPicker' data-target-input="nearest">
-          <%= f.text_field :time_gteq, :class => "form-control datetimepicker-input", :placeholder => "Time greater than or equal to", :data => {:target => '#timegteqPicker'} %>
-          <div class="input-group-append" data-target='#timegteqPicker' data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
-          </div>
-          <script type="text/javascript">
-            $(function () {
-                $('#timegteqPicker').datetimepicker({
-                  format: 'LT'
-                });
-            });
-          </script>
-        </div>
-      </div>
-      <div class='col-md-6'>
-        <div class='input-group date' id='timelteqPicker' data-target-input="nearest">
-          <%= f.text_field :time_lteq, :class => "form-control datetimepicker-input", :placeholder => "Time less than or equal to", :data => {:target => '#timelteqPicker'} %>
-          <div class="input-group-append" data-target='#timelteqPicker' data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
-          </div>
-          <script type="text/javascript">
-            $(function () {
-                $('#timelteqPicker').datetimepicker({
-                  format: 'LT'
-                });
-            });
-          </script>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :date, "Date" %>
-    <div class="row">
-      <div class='col-md-6 mb-1'>
-        <div class='input-group date' id='dategteqPicker' data-target-input="nearest">
-          <%= f.text_field :date_gteq, :class => "form-control datetimepicker-input", :placeholder => "Date greater than or equal to", :data => {:target => '#dategteqPicker'} %>
-          <div class="input-group-append" data-target='#dategteqPicker' data-toggle="datetimepicker">
+        <div class='input-group date' id='datetimegteqPicker' data-target-input="nearest">
+          <%= f.text_field :datetime_gteq, :class => "form-control datetimepicker-input", :placeholder => "Datetime greater than or equal to", :data => {:target => '#datetimegteqPicker'} %>
+          <div class="input-group-append" data-target='#datetimegteqPicker' data-toggle="datetimepicker">
             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
           </div>
         </div>
       </div>
 
       <div class='col-md-6'>
-        <div class='input-group date' id='datelteqPicker' data-target-input="nearest">
-          <%= f.text_field :date_lteq, :class => "form-control datetimepicker-input", :placeholder => "Date less than or equal to", :data => {:target => '#datelteqPicker'} %>
-          <div class="input-group-append" data-target='#datelteqPicker' data-toggle="datetimepicker">
+        <div class='input-group date' id='datetimelteqPicker' data-target-input="nearest">
+          <%= f.text_field :datetime_lteq, :class => "form-control datetimepicker-input", :placeholder => "Datetime less than or equal to", :data => {:target => '#datetimelteqPicker'} %>
+          <div class="input-group-append" data-target='#datetimelteqPicker' data-toggle="datetimepicker">
             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
           </div>
         </div>
@@ -66,18 +30,18 @@
   </div>
   <script type="text/javascript">
       $(function () {
-          $('#dategteqPicker').datetimepicker({
-              format: 'MM/DD/YYYY'
+          $('#datetimegteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
           });
-          $('#datelteqPicker').datetimepicker({
+          $('#datetimelteqPicker').datetimepicker({
               useCurrent: false,
-              format: 'MM/DD/YYYY'
+              format: 'YYYY-MM-DD hh:mm:SS'
           });
-          $('#dategteqPicker').on("dp.change", function (e) {
-              $('#datelteqPicker').data("DateTimePicker").minDate(e.date);
+          $('#datetimegteqPicker').on("dp.change", function (e) {
+              $('#datetimelteqPicker').data("DateTimePicker").minDate(e.date);
           });
-          $('#datelteqPicker').on("dp.change", function (e) {
-              $('#dategteqPicker').data("DateTimePicker").maxDate(e.date);
+          $('#datetimelteqPicker').on("dp.change", function (e) {
+              $('#datetimegteqPicker').data("DateTimePicker").maxDate(e.date);
           });
       });
   </script>

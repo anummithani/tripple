@@ -1,0 +1,93 @@
+<% was_validated = accommodation.errors.any? %>
+
+<%= form_with(model: accommodation, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = accommodation.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <% if name_was_invalid %>
+      <% accommodation.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% check_in_date_class = "form-control" %>
+    <% check_in_date_was_invalid = accommodation.errors.include?(:check_in_date) %>
+
+    <% if was_validated %>
+      <% if check_in_date_was_invalid %>
+        <% check_in_date_class << " is-invalid" %>
+      <% else %>
+        <% check_in_date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :check_in_date %>
+    <%= f.datetime_select :check_in_date, class: check_in_date_class, placeholder: "Enter check in date" %>
+    <% if check_in_date_was_invalid %>
+      <% accommodation.errors.full_messages_for(:check_in_date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% check_out_date_class = "form-control" %>
+    <% check_out_date_was_invalid = accommodation.errors.include?(:check_out_date) %>
+
+    <% if was_validated %>
+      <% if check_out_date_was_invalid %>
+        <% check_out_date_class << " is-invalid" %>
+      <% else %>
+        <% check_out_date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :check_out_date %>
+    <%= f.datetime_select :check_out_date, class: check_out_date_class, placeholder: "Enter check out date" %>
+    <% if check_out_date_was_invalid %>
+      <% accommodation.errors.full_messages_for(:check_out_date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% trip_class = "form-control" %>
+    <% trip_was_invalid = accommodation.errors.include?(:trip) %>
+
+    <% if was_validated %>
+      <% if trip_was_invalid %>
+        <% trip_class << " is-invalid" %>
+      <% else %>
+        <% trip_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :trip_id %>
+    <%= f.collection_select :trip_id, Trip.all, :id, :to_s, {}, class: "form-control" %>
+    <% if trip_was_invalid %>
+      <% accommodation.errors.full_messages_for(:trip).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

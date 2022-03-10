@@ -143,11 +143,6 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :sights_name_cont, "Sights name contains" %>
-    <%= f.text_field :sights_name_cont, :class => "form-control", :placeholder => "Sights name contains" %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :created_at, "TripPhoto Created at" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
@@ -186,6 +181,16 @@
           });
       });
   </script>
+
+  <div class="form-group">
+    <%= f.label :accommodations_name_cont, "Accommodations name contains" %>
+    <%= f.text_field :accommodations_name_cont, :class => "form-control", :placeholder => "Accommodations name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sights_name_cont, "Sights name contains" %>
+    <%= f.text_field :sights_name_cont, :class => "form-control", :placeholder => "Sights name contains" %>
+  </div>
 
   <div class="form-group">
     <%= f.label :users_email_cont, "Users email contains" %>

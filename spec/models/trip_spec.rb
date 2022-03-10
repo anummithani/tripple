@@ -2,9 +2,11 @@ require "rails_helper"
 
 RSpec.describe Trip, type: :model do
   describe "Direct Associations" do
-    it { should have_many(:trip_photos) }
-
     it { should have_many(:sights) }
+
+    it { should have_many(:accommodations) }
+
+    it { should have_many(:trip_photos) }
 
     it { should have_many(:restaurants) }
 

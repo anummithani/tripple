@@ -7,14 +7,9 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :date %>
+    <%= f.label :datetime %>
 
-    <%= f.date_select :date, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :time %>
-    <%= f.text_area :time, rows: "3", class: "form-control" %>
+    <%= f.date_select :datetime, class: "form-control" %>
   </div>
 
   <%= f.hidden_field :trip_id, value: @trip.id %>

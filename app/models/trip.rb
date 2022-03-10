@@ -3,10 +3,13 @@ class Trip < ApplicationRecord
 
   # Direct associations
 
-  has_many   :trip_photos,
+  has_many   :sights,
              dependent: :destroy
 
-  has_many   :sights,
+  has_many   :accommodations,
+             dependent: :destroy
+
+  has_many   :trip_photos,
              dependent: :destroy
 
   has_many   :restaurants,

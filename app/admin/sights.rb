@@ -1,5 +1,5 @@
 ActiveAdmin.register Sight do
-  permit_params :name, :date, :time, :trip_id
+  permit_params :name, :datetime, :trip_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
